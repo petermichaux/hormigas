@@ -4,6 +4,77 @@ Hormigas
 JavaScript collection classes.
 
 
+Examples
+--------
+
+An ObjectSet instance can hold objects (not primitives as a performance tradeoff.)
+
+```javascript
+var alpha = {length: 5};
+var beta  = {length: 4};
+var gamma = {length: 5};
+var set = new hormigas.ObjectSet(alpha, beta, alpha);
+set.length; // 2
+set.has(alpha);
+set['delete'](beta);
+set.add(gamma);
+set.toArray(); // [alpha, gamma] or [gamma, alpha]
+set.forEach(function(element) {
+    console.log(element.length);
+});
+set.every(function(element) {
+    return element.length > 0;
+}); // true
+set.some(function(element) {
+    return element.length > 0;
+}); // true
+set.reduce(function(accumulator, element) {
+    return {value: accumulator.length + element.length};
+}); // 10
+set.map(function(element) {
+    return element.length;
+}); // [5, 5]
+set.filter(function(element) {
+    return element.length > 4;
+}); // [alpha, gamma] or [gamma, alpha]
+set.empty();
+```
+
+You can also mixin ObjectSet functionality into other constructors
+
+```javascript
+app.MyModel = function() {
+    hormigas.ObjectSet.call(this);
+};
+hormigas.ObjectSet.mixin(app.MyModel.prototype);
+```
+
+or mixin to just a single object.
+
+```javascript
+var obj = {};
+hormigas.ObjectSet.mixin(obj);
+```
+
+
+Downloads
+---------
+
+See http://peter.michaux.ca/downloads/hormigas/ for production ready builds.
+
+
+Status
+------
+
+Ready.
+
+
+Browser Support
+---------------
+
+Tested working in IE6 and newer browsers by a variety of manufacturers.
+
+
 Dependencies
 ------------
 

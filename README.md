@@ -4,24 +4,6 @@ Hormigas
 JavaScript collection classes.
 
 
-Downloads
----------
-
-See http://peter.michaux.ca/downloads/hormigas/ for production ready builds.
-
-
-Status
-------
-
-Ready.
-
-
-Browser Support
----------------
-
-Tested working in IE6 and newer browsers by a variety of manufacturers.
-
-
 Dependencies
 ------------
 

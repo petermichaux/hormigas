@@ -48,6 +48,25 @@ Harmony Set proposal and the Array.prototype iterators.
 
 /**
 
+@property hormigas.ObjectSet.prototype.isEmpty
+
+@description
+
+Returns true if set is empty. Otherwise returns false.
+
+var alpha = {};
+var set = new hormigas.ObjectSet(alpha);
+set.isEmpty();        // false
+set['delete'](alpha);
+set.isEmpty();        // true
+
+*/
+    hormigas.ObjectSet.prototype.isEmpty = function() {
+        return this.length < 1;
+    };
+
+/**
+
 @property hormigas.ObjectSet.prototype.has
 
 @parameter element

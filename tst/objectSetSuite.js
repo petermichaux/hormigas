@@ -202,6 +202,23 @@
                 return {value: previous.value + current.value};
             }, initial);
             assert.same(initial.value, result.value);
+        },
+
+        "test empty set has isEmpty true": function() {
+            var s = new hormigas.ObjectSet();
+            assert.same(true, s.isEmpty());
+        },
+
+        "test non-empty set has isEmpty false": function() {
+            var s = new hormigas.ObjectSet({});
+            assert.same(false, s.isEmpty());
+        },
+
+        "test emptying a set causes isEmpty to true again": function() {
+            var one = {};
+            var s = new hormigas.ObjectSet(one);
+            s['delete'](one);
+            assert.same(true, s.isEmpty());
         }
 
     });

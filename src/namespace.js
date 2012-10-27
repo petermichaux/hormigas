@@ -1,1 +1,1 @@
-var hormigas = hormigas || {};
+var hormigas = {};

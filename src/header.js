@@ -1,5 +1,5 @@
 /*
-Hormigas version 3
+Hormigas version 4
 Copyright (c) 2012, Peter Michaux
 All rights reserved.
 Licensed under the Simplified BSD License.

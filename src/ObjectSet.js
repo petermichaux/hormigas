@@ -55,8 +55,11 @@ Harmony Set proposal and the `Array.prototype` iterators.
 
 The number of elements in the set.
 
+@member hormigas.ObjectSet.prototype.length
+
+@readonly
+
 */
-hormigas.ObjectSet.prototype.length = 0;
 
 /**
 

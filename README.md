@@ -15,7 +15,7 @@ var beta  = {length: 4};
 var gamma = {length: 5};
 var set = new hormigas.ObjectSet(alpha, beta, alpha);
 set.length; // 2
-set.has(alpha);
+set.has(alpha); // true
 set['delete'](beta);
 set.add(gamma);
 set.toArray(); // [alpha, gamma] or [gamma, alpha]
@@ -66,7 +66,7 @@ See http://peter.michaux.ca/downloads/hormigas/ for production ready builds.
 Status
 ------
 
-Ready.
+Stable.
 
 
 Browser Support

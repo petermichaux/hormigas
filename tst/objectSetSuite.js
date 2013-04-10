@@ -5,7 +5,7 @@
         "test set starts with no elements": function() {
             var s = new hormigas.ObjectSet();
             var alpha = {};
-            assert.same(0, s.length, "set should start empty");
+            assert.same(0, s.size, "set should start empty");
             assert.same(false, s.has(alpha), "an empty list should not have an alpha element");
         },
 
@@ -13,7 +13,7 @@
             var alpha = {};
             var beta = {};
             var s = new hormigas.ObjectSet(alpha, beta, alpha);
-            assert.same(2, s.length);
+            assert.same(2, s.size);
             assert.same(true, s.has(alpha));
             assert.same(true, s.has(beta));
         },
@@ -43,34 +43,34 @@
             assert.same(true, s.has(alpha));
             assert.same(true, s.has(beta));
             assert.same(true, s.clear(), "clearing a non-clear set should return true");
-            assert.same(0, s.length);
+            assert.same(0, s.size);
             assert.same(false, s.has(alpha));
             assert.same(false, s.has(beta));
             assert.same(false, s.clear(), "clearing a clear set should return false");
         },
 
-        "test hormigas.ObjectSet length property": function() {
+        "test hormigas.ObjectSet size property": function() {
             var s = new hormigas.ObjectSet();
             var alpha = {};
             var beta = {};
-            assert.same(0, s.length, "s.length should start life at zero.");
+            assert.same(0, s.size, "s.size should start life at zero.");
             s.add(alpha);
-            assert.same(1, s.length, "The length should increment to one after adding first element.");
+            assert.same(1, s.size, "The size should increment to one after adding first element.");
             s.add(alpha);
-            assert.same(1, s.length, "After adding the same element again the length should not change.");
+            assert.same(1, s.size, "After adding the same element again the size should not change.");
             s.add(beta);
-            assert.same(2, s.length, "After adding two elements the length should be two.");
+            assert.same(2, s.size, "After adding two elements the size should be two.");
             s['delete'](alpha);
-            assert.same(1, s.length, "After removing an element the length should decrement.");
+            assert.same(1, s.size, "After removing an element the size should decrement.");
             s['delete'](alpha);
-            assert.same(1, s.length, "Removing an element not in the set should not change the length.");
+            assert.same(1, s.size, "Removing an element not in the set should not change the size.");
             s['delete'](beta);
-            assert.same(0, s.length, "Removing last element in set should return the length to zero.");
+            assert.same(0, s.size, "Removing last element in set should return the size to zero.");
             s['delete'](beta);
-            assert.same(0, s.length, "Removing it again should still keep it at zero.");
+            assert.same(0, s.size, "Removing it again should still keep it at zero.");
         },
 
-        "test length properties are independent on multiple objects": function() {
+        "test size properties are independent on multiple objects": function() {
             var s0 = new hormigas.ObjectSet();
             var s1 = new hormigas.ObjectSet();
 
@@ -78,17 +78,17 @@
             var beta = {};
             var gamma = {};
 
-            assert.same(0, s0.length);
-            assert.same(0, s1.length);
+            assert.same(0, s0.size);
+            assert.same(0, s1.size);
 
             s0.add(alpha);
-            assert.same(1, s0.length);
-            assert.same(0, s1.length);
+            assert.same(1, s0.size);
+            assert.same(0, s1.size);
 
             s1.add(beta);
             s1.add(gamma);
-            assert.same(1, s0.length);
-            assert.same(2, s1.length);
+            assert.same(1, s0.size);
+            assert.same(2, s1.size);
         },
 
         "test elements are independent on multiple objects": function() {

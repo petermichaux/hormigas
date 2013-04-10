@@ -8,7 +8,7 @@
 
     function initSet(set) {
         set._hormigas_ObjectSet_elements = {};
-        set.length = 0;
+        set.size = 0;
     }
 
 /**
@@ -34,7 +34,7 @@ on the order of iteration of the set's elements. `ObjectSet` objects are unorder
     var alpha = {};
     var beta = {};
     var set = new hormigas.ObjectSet(alpha, beta, alpha);
-    set.length; // 2
+    set.size; // 2
 
 The methods of an `ObjectSet` object are inspired by the incomplete
 Harmony Set proposal and the `Array.prototype` iterators.
@@ -55,7 +55,7 @@ Harmony Set proposal and the `Array.prototype` iterators.
 
 The number of elements in the set.
 
-@member hormigas.ObjectSet.prototype.length
+@member hormigas.ObjectSet.prototype.size
 
 @readonly
 
@@ -75,7 +75,7 @@ Use to determine if the set has any elements or not.
 
 */
     hormigas.ObjectSet.prototype.isEmpty = function() {
-        return this.length < 1;
+        return this.size < 1;
     };
 
 /**
@@ -122,7 +122,7 @@ If `element` is not already in the set then adds element to the set.
                 element._hormigas_ObjectSet_id = getId();
             }
             this._hormigas_ObjectSet_elements[element._hormigas_ObjectSet_id] = element;
-            this.length++;
+            this.size++;
             return true;
         }
     };
@@ -148,7 +148,7 @@ position so quote `delete`.
     hormigas.ObjectSet.prototype['delete'] = function(element) {
         if (this.has(element)) {
             delete this._hormigas_ObjectSet_elements[element._hormigas_ObjectSet_id];
-            this.length--;
+            this.size--;
             return true;
         }
         else {
@@ -169,7 +169,7 @@ If the set has elements then removes all the elements.
 
 */
     hormigas.ObjectSet.prototype.clear = function() {
-        if (this.length > 0) {
+        if (this.size > 0) {
             initSet(this);
             return true;
         }

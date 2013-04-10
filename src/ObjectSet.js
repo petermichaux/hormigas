@@ -162,13 +162,13 @@ If the set has elements then removes all the elements.
 
     var alpha = {};
     var set = new hormigas.ObjectSet(alpha);
-    set.empty(); // true
-    set.empty(); // false
+    set.clear(); // true
+    set.clear(); // false
 
 @return {boolean} `true` if elements were deleted from the set as the result of this call. Otherwise `false` because no elements were in the set.
 
 */
-    hormigas.ObjectSet.prototype.empty = function() {
+    hormigas.ObjectSet.prototype.clear = function() {
         if (this.length > 0) {
             initSet(this);
             return true;

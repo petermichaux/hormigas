@@ -34,7 +34,7 @@
             assert.same(true, s.has(alpha));
         },
 
-        "test empty": function() {
+        "test clear": function() {
             var s = new hormigas.ObjectSet();
             var alpha = {};
             var beta = {};
@@ -42,11 +42,11 @@
             s.add(beta);
             assert.same(true, s.has(alpha));
             assert.same(true, s.has(beta));
-            assert.same(true, s.empty(), "emptying a non-empty set should return true");
+            assert.same(true, s.clear(), "clearing a non-clear set should return true");
             assert.same(0, s.length);
             assert.same(false, s.has(alpha));
             assert.same(false, s.has(beta));
-            assert.same(false, s.empty(), "emptying an empty set should return false");
+            assert.same(false, s.clear(), "clearing a clear set should return false");
         },
 
         "test hormigas.ObjectSet length property": function() {

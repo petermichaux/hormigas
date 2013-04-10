@@ -63,23 +63,6 @@ The number of elements in the set.
 
 /**
 
-Use to determine if the set has any elements or not.
-
-    var alpha = {};
-    var set = new hormigas.ObjectSet(alpha);
-    set.isEmpty();        // false
-    set['delete'](alpha);
-    set.isEmpty();        // true
-
-@return {boolean} `true` if set is empty. Otherwise `false`.
-
-*/
-    hormigas.ObjectSet.prototype.isEmpty = function() {
-        return this.size < 1;
-    };
-
-/**
-
 Is a particular object in the set or not?
 
     var alpha = {};

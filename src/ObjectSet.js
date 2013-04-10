@@ -29,7 +29,7 @@ on the order of iteration of the set's elements. `ObjectSet` objects are unorder
 
     var set = new hormigas.ObjectSet();                     // an empty set
 
-`ObjectSet` objects have a `length` property that is the number of elements in the set.
+`ObjectSet` objects have a `size` property that is the number of elements in the set.
 
     var alpha = {};
     var beta = {};

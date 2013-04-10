@@ -14,7 +14,7 @@ var alpha = {length: 5};
 var beta  = {length: 4};
 var gamma = {length: 5};
 var set = new hormigas.ObjectSet(alpha, beta, alpha);
-set.length; // 2
+set.size; // 2
 set.has(alpha); // true
 set['delete'](beta);
 set.add(gamma);

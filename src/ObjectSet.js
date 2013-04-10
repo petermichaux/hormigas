@@ -24,7 +24,7 @@ Do not attempt to add primitives or host objects in a `ObjectSet`. This
 is a compromise to make `ObjectSet` objects efficient for use in the model
 layer of your MVC-style application.
 
-When using the set iterators (e.g. `forEach`, `map`) do not depend
+When using the set iterators (e.g. `forEach`) do not depend
 on the order of iteration of the set's elements. `ObjectSet` objects are unordered.
 
     var set = new hormigas.ObjectSet();                     // an empty set
@@ -333,72 +333,6 @@ iterated in the set.
             i++;
         }
         return accumulator;
-    };
-
-/**
-
-Calls `callbackfn` for each element of the set. The values returned by `callbackfn`
-are added to a new array. This new array is the value returned by map.
-
-    var alpha = {length: 5};
-    var beta = {length: 4};
-    var gamma = {length: 5};
-    var set = new hormigas.ObjectSet(alpha, beta, gamma);
-    set.map(function(element) {
-        return element.length;
-    }); // [5,5,4] or [5,4,5] or [4,5,5]
-
-@param {function} callbackfn The function to call for each element in the set.
-
-@param {Object} [thisArg] The object to use as the this object in calls to `callbackfn`.
-
-@return {Array} The mapped values.
-
-*/
-    hormigas.ObjectSet.prototype.map = function(callbackfn /*, thisArg */) {
-        var thisArg = arguments[1];
-        var result = [];
-        for (var p in this._hormigas_ObjectSet_elements) {
-            if (Object.prototype.hasOwnProperty.call(this._hormigas_ObjectSet_elements, p)) {
-                result.push(callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p], this));
-            }
-        }
-        return result;
-    };
-
-/**
-
-Calls callbackfn for each element of the set. If callbackfn returns true
-for an element then that element is added to a new array. This new array
-is the value returned by filter.
-
-    var alpha = {length: 5};
-    var beta = {length: 4};
-    var gamma = {length: 5};
-    var set = new hormigas.ObjectSet(alpha, beta, gamma);
-    set.filter(function(element) {
-        return element.length > 4;
-    }); // [alpha, gamma] or [gamma, alpha]
-
-@param {function} callbackfn The function to call for each element in the set.
-
-@param {object} [thisArg] The object to use as the this object in calls to `callbackfn`.
-
-@return {Array} The filtered values.
-
-*/
-    hormigas.ObjectSet.prototype.filter = function(callbackfn /*, thisArg */) {
-        var thisArg = arguments[1];
-        var result = [];
-        for (var p in this._hormigas_ObjectSet_elements) {
-            if (Object.prototype.hasOwnProperty.call(this._hormigas_ObjectSet_elements, p)) {
-                var element = this._hormigas_ObjectSet_elements[p];
-                if (callbackfn.call(thisArg, element, this)) {
-                    result.push(element);
-                }
-            }
-        }
-        return result;
     };
 
 }());

@@ -128,28 +128,6 @@
             assert.arrayEquals([alpha, beta], t);
         },
 
-        "test map": function() {
-            var alpha = {length:5};
-            var beta = {length:4};
-            var gamma = {length:5};
-            var s = new hormigas.ObjectSet(alpha, beta, gamma);
-            var t = s.map(function(el) {
-                return el.length;
-            });
-            assert.arrayEquals([5, 4, 5], t);
-        },
-
-        "test filter": function() {
-            var alpha = {length:5};
-            var beta = {length:4};
-            var gamma = {length:5};
-            var s = new hormigas.ObjectSet(alpha, beta, gamma);
-            var t = s.filter(function(el) {
-                return el.length === 5;
-            });
-            assert.arrayEquals([alpha, gamma], t);
-        },
-
         "test some": function() {
             var alpha = {length:5};
             var beta = {length:4};

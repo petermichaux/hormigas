@@ -186,7 +186,7 @@ Calls `callbackfn` for each element of the set.
     var beta = {value: 1};
     var gamma = {value: 2};
     var set = new hormigas.ObjectSet(alpha, beta, gamma);
-    set.forEach(function(element, set) {
+    set.forEach(function(element) {
         console.log(element.value);
     });
 
@@ -199,7 +199,7 @@ Calls `callbackfn` for each element of the set.
         var thisArg = arguments[1];
         for (var p in this._hormigas_ObjectSet_elements) {
             if (Object.prototype.hasOwnProperty.call(this._hormigas_ObjectSet_elements, p)) {
-                callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p], this);
+                callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p]);
             }
         }
     };
@@ -212,7 +212,7 @@ Calls `callbackfn` for each element of the set.
     var two = {value: 2};
     var three = {value: 3};
     var set = new hormigas.ObjectSet(one, two, three);
-    set.every(function(element, set) {
+    set.every(function(element) {
         return element.value < 2;
     }); // false
 
@@ -227,7 +227,7 @@ Calls `callbackfn` for each element of the set.
         var thisArg = arguments[1];
         for (var p in this._hormigas_ObjectSet_elements) {
             if (Object.prototype.hasOwnProperty.call(this._hormigas_ObjectSet_elements, p) &&
-                !callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p], this)) {
+                !callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p])) {
                 return false;
             }
         }
@@ -242,7 +242,7 @@ Calls `callbackfn` for each element of the set.
     var two = {value: 2};
     var three = {value: 3};
     var set = new hormigas.ObjectSet(one, two, three);
-    set.some(function(element, set) {
+    set.some(function(element) {
         return element.value < 2;
     }); // true
 
@@ -257,7 +257,7 @@ Calls `callbackfn` for each element of the set.
         var thisArg = arguments[1];
         for (var p in this._hormigas_ObjectSet_elements) {
             if (Object.prototype.hasOwnProperty.call(this._hormigas_ObjectSet_elements, p) &&
-                callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p], this)) {
+                callbackfn.call(thisArg, this._hormigas_ObjectSet_elements[p])) {
                 return true;
             }
         }
@@ -312,7 +312,7 @@ iterated in the set.
             accumulator = elements[0];
         }
         while (i < ilen) {
-            accumulator = callbackfn.call(undefined, accumulator, elements[i], this);
+            accumulator = callbackfn.call(undefined, accumulator, elements[i]);
             i++;
         }
         return accumulator;

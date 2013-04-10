@@ -168,6 +168,11 @@
             assert.same(true, s.every(function(el) {return typeof el === 'object';}));
         },
 
+        "test every on empty set is true": function() {
+            var s = new hormigas.ObjectSet();
+            assert.same(true, s.every(function(el) {return false;}));
+        },
+
         "test reduce": function() {
             var zero = {value:0};
             var one = {value:1};

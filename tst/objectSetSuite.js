@@ -2,6 +2,10 @@
 
     buster.testCase('objectSetSuite', {
 
+        "test ObjectSet has superConstructor Object": function() {
+            assert.same(Object, hormigas.ObjectSet.superConstructor);
+        },
+
         "test set starts with no elements": function() {
             var s = new hormigas.ObjectSet();
             var alpha = {};

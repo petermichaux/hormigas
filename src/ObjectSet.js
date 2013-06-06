@@ -51,6 +51,8 @@ Harmony Set proposal and the `Array.prototype` iterators.
         }
     };
 
+    hormigas.ObjectSet.superConstructor = Object;
+
 /**
 
 The number of elements in the set.

@@ -51,6 +51,11 @@ Harmony Set proposal and the `Array.prototype` iterators.
         }
     };
 
+/**
+
+@property hormigas.ObjectSet.superConstructor
+
+*/
     hormigas.ObjectSet.superConstructor = Object;
 
 /**

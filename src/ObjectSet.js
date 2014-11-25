@@ -1,5 +1,17 @@
 (function() {
 
+    // The technique of giving set elements an id for efficient set operations
+    // (e.g. has) works as long as the following situation does not happen.
+    // If this library is loaded in two browsers windows that can communicate
+    // and the browser windows share objects, there could be an objects in
+    // each browser window that has the same id. If adding those two objects
+    // to the same ObjectSet is attempted, only the first object will be added.
+    // When the attempt to add the second object is made, the set will think
+    // that the object is already an element in the set. If anyone ever has
+    // a problem with this, we could try to determine a way to make these
+    // ids unique even across browser windows. As it is, no one is having
+    // problems so keeping this simple is the choice made for now.
+
     var nextId = 0;
 
     function getId() {
@@ -136,6 +148,10 @@ position so quote `delete`.
 */
     hormigas.ObjectSet.prototype['delete'] = function(element) {
         if (this.has(element)) {
+            // Note that the element is removed from this ObjectSet but
+            // the element._hormigas_ObjectSet_id property of the element
+            // is not removed. That property is not removed because
+            // the element may be a member of another set.
             delete this._hormigas_ObjectSet_elements[element._hormigas_ObjectSet_id];
             this.size--;
             return true;

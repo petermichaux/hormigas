@@ -107,7 +107,6 @@ If `element` is not already in the set then adds element to the set.
             return false;
         }
         else {
-            var id;
             if (!Object.prototype.hasOwnProperty.call(element, '_hormigas_ObjectSet_id')) {
                 element._hormigas_ObjectSet_id = getId();
             }
